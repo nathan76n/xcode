@@ -2,8 +2,8 @@
 //  Array2D.swift
 //  CookieCrunch
 //
-//  Created by Nathan Nguyen on 1/18/15.
-//  Copyright (c) 2015 nigmia. All rights reserved.
+//  Created by Matthijs on 19-06-14.
+//  Copyright (c) 2014 Razeware LLC. All rights reserved.
 //
 
 struct Array2D<T> {

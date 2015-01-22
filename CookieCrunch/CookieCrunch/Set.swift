@@ -2,10 +2,14 @@
 //  Set.swift
 //  CookieCrunch
 //
-//  Created by Nathan Nguyen on 1/18/15.
-//  Copyright (c) 2015 nigmia. All rights reserved.
+//  Created by Matthijs on 19-06-14.
+//  Copyright (c) 2014 Razeware LLC. All rights reserved.
 //
 
+// A set is a collection that allows each element to appear only once, and it
+// does not store the elements in any particular order.
+// As of Xcode 6 beta 2, Swift does not include a Set class. This is a simple
+// implementation of a set, using a Dictionary as the actual storage mechanism.
 struct Set<T: Hashable>: SequenceType, Printable {
     private var dictionary = Dictionary<T, Bool>()
     
@@ -50,5 +54,4 @@ struct Set<T: Hashable>: SequenceType, Printable {
     var description: String {
         return dictionary.description
     }
-    
 }

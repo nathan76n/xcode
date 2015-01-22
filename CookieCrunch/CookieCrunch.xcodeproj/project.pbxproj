@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8767AD81A6FFD10009CD9B0 /* Swap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8767AD71A6FFD10009CD9B0 /* Swap.swift */; };
+		D8767AE01A702FE6009CD9B0 /* Chomp.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8767ADA1A702FE6009CD9B0 /* Chomp.wav */; };
+		D8767AE11A702FE6009CD9B0 /* Drip.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8767ADB1A702FE6009CD9B0 /* Drip.wav */; };
+		D8767AE21A702FE6009CD9B0 /* Error.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8767ADC1A702FE6009CD9B0 /* Error.wav */; };
+		D8767AE31A702FE6009CD9B0 /* Ka-Ching.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8767ADD1A702FE6009CD9B0 /* Ka-Ching.wav */; };
+		D8767AE41A702FE6009CD9B0 /* Mining by Moonlight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D8767ADE1A702FE6009CD9B0 /* Mining by Moonlight.mp3 */; };
+		D8767AE51A702FE6009CD9B0 /* Scrape.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8767ADF1A702FE6009CD9B0 /* Scrape.wav */; };
 		D8B63D4F1A6AD6550099BCDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B63D4E1A6AD6550099BCDB /* AppDelegate.swift */; };
 		D8B63D531A6AD6550099BCDB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B63D521A6AD6550099BCDB /* GameScene.swift */; };
 		D8B63D551A6AD6550099BCDB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B63D541A6AD6550099BCDB /* GameViewController.swift */; };
@@ -39,6 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D8767AD71A6FFD10009CD9B0 /* Swap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swap.swift; sourceTree = "<group>"; };
+		D8767ADA1A702FE6009CD9B0 /* Chomp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Chomp.wav; sourceTree = "<group>"; };
+		D8767ADB1A702FE6009CD9B0 /* Drip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Drip.wav; sourceTree = "<group>"; };
+		D8767ADC1A702FE6009CD9B0 /* Error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Error.wav; sourceTree = "<group>"; };
+		D8767ADD1A702FE6009CD9B0 /* Ka-Ching.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Ka-Ching.wav"; sourceTree = "<group>"; };
+		D8767ADE1A702FE6009CD9B0 /* Mining by Moonlight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mining by Moonlight.mp3"; sourceTree = "<group>"; };
+		D8767ADF1A702FE6009CD9B0 /* Scrape.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Scrape.wav; sourceTree = "<group>"; };
 		D8B63D491A6AD6550099BCDB /* CookieCrunch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookieCrunch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B63D4D1A6AD6550099BCDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8B63D4E1A6AD6550099BCDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +96,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D8767AD91A702FE6009CD9B0 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				D8767ADA1A702FE6009CD9B0 /* Chomp.wav */,
+				D8767ADB1A702FE6009CD9B0 /* Drip.wav */,
+				D8767ADC1A702FE6009CD9B0 /* Error.wav */,
+				D8767ADD1A702FE6009CD9B0 /* Ka-Ching.wav */,
+				D8767ADE1A702FE6009CD9B0 /* Mining by Moonlight.mp3 */,
+				D8767ADF1A702FE6009CD9B0 /* Scrape.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		D8B63D401A6AD6550099BCDB = {
 			isa = PBXGroup;
 			children = (
@@ -103,17 +130,19 @@
 		D8B63D4B1A6AD6550099BCDB /* CookieCrunch */ = {
 			isa = PBXGroup;
 			children = (
+				D8767AD91A702FE6009CD9B0 /* Sounds */,
 				D8C557711A6E13CE00E9503A /* Levels */,
 				D8B63D721A6B0B440099BCDB /* Sprites.atlas */,
 				D8B63D4E1A6AD6550099BCDB /* AppDelegate.swift */,
 				D8B63D521A6AD6550099BCDB /* GameScene.swift */,
+				D8B63D541A6AD6550099BCDB /* GameViewController.swift */,
 				D8B63DA51A6B7CA40099BCDB /* Cookie.swift */,
 				D8C5576B1A6C6F2900E9503A /* Array2D.swift */,
+				D8767AD71A6FFD10009CD9B0 /* Swap.swift */,
 				D8C5576D1A6C708B00E9503A /* Set.swift */,
 				D8C5577C1A6E145B00E9503A /* Tile.swift */,
 				D8C5576F1A6DC03600E9503A /* Level.swift */,
 				D8C5577E1A6E154A00E9503A /* Extensions.swift */,
-				D8B63D541A6AD6550099BCDB /* GameViewController.swift */,
 				D8B63D561A6AD6550099BCDB /* Main.storyboard */,
 				D8B63D591A6AD6550099BCDB /* Images.xcassets */,
 				D8B63D5B1A6AD6550099BCDB /* LaunchScreen.xib */,
@@ -240,10 +269,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8B63D5D1A6AD6550099BCDB /* LaunchScreen.xib in Resources */,
+				D8767AE11A702FE6009CD9B0 /* Drip.wav in Resources */,
 				D8C5577B1A6E13CE00E9503A /* Level_4.json in Resources */,
+				D8767AE21A702FE6009CD9B0 /* Error.wav in Resources */,
 				D8C557791A6E13CE00E9503A /* Level_2.json in Resources */,
+				D8767AE51A702FE6009CD9B0 /* Scrape.wav in Resources */,
 				D8C557771A6E13CE00E9503A /* Level_0.json in Resources */,
+				D8767AE01A702FE6009CD9B0 /* Chomp.wav in Resources */,
+				D8767AE41A702FE6009CD9B0 /* Mining by Moonlight.mp3 in Resources */,
 				D8B63D5A1A6AD6550099BCDB /* Images.xcassets in Resources */,
+				D8767AE31A702FE6009CD9B0 /* Ka-Ching.wav in Resources */,
 				D8B63D581A6AD6550099BCDB /* Main.storyboard in Resources */,
 				D8C557781A6E13CE00E9503A /* Level_1.json in Resources */,
 				D8C5577A1A6E13CE00E9503A /* Level_3.json in Resources */,
@@ -269,6 +304,7 @@
 				D8C5577F1A6E154A00E9503A /* Extensions.swift in Sources */,
 				D8C557701A6DC03700E9503A /* Level.swift in Sources */,
 				D8B63DA61A6B7CA40099BCDB /* Cookie.swift in Sources */,
+				D8767AD81A6FFD10009CD9B0 /* Swap.swift in Sources */,
 				D8C5577D1A6E145B00E9503A /* Tile.swift in Sources */,
 				D8C5576E1A6C708B00E9503A /* Set.swift in Sources */,
 				D8B63D551A6AD6550099BCDB /* GameViewController.swift in Sources */,
