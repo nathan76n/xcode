@@ -13,6 +13,16 @@ class GameViewController: UIViewController {
     // The scene draws the tiles and cookie sprites, and handles swipes.
     var scene: GameScene!
     
+    var movesLeft = 0
+    var score = 0
+    
+    var tapGestureRecognizer: UITapGestureRecognizer!
+    
+    @IBOutlet weak var targetLabel: UILabel!
+    @IBOutlet weak var movesLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var gameOverPanel: UIImageView!
+    
     // The level contains the tiles, the cookies, and most of the gameplay logic.
     // Needs to be ! because it's not set in init() but in viewDidLoad().
     var level: Level!
@@ -46,6 +56,8 @@ class GameViewController: UIViewController {
         scene.addTiles()
         scene.swipeHandler = handleSwipe
         
+        gameOverPanel.hidden = true
+        
         // Present the scene.
         skView.presentScene(scene)
         
@@ -54,6 +66,10 @@ class GameViewController: UIViewController {
     }
     
     func beginGame() {
+        movesLeft = level.maximumMoves
+        score = 0
+        updateLabels()
+        level.resetComboMultiplier()
         shuffle()
     }
     
@@ -72,13 +88,77 @@ class GameViewController: UIViewController {
         
         if level.isPossibleSwap(swap) {
             level.performSwap(swap)
-            scene.animateSwap(swap) {
-                self.view.userInteractionEnabled = true
-            }
+            scene.animateSwap(swap, completion: handleMatches)
         } else {
             scene.animateInvalidSwap(swap) {
                 self.view.userInteractionEnabled = true
             }
         }
+    }
+    
+    func updateLabels() {
+        targetLabel.text = NSString(format: "%ld", level.targetScore)
+        movesLabel.text = NSString(format: "%ld", movesLeft)
+        scoreLabel.text = NSString(format: "%ld", score)
+    }
+    
+    func handleMatches() {
+        let chains = level.removeMatches()
+        
+        if chains.count == 0 {
+            beginNextTurn()
+            return
+        }
+        scene.animateMatchedCookies(chains) {
+            for chain in chains {
+                self.score += chain.score
+            }
+            self.updateLabels()
+            let columns = self.level.fillHoles()
+            self.scene.animateFallingCookies(columns) {
+                let columns = self.level.topUpCookies()
+                self.scene.animateNewCookies(columns) {
+                    self.handleMatches()
+                }
+            }
+        }
+    }
+    
+    func beginNextTurn() {
+        level.resetComboMultiplier()
+        level.detectPossibleSwaps()
+        decrementMoves()
+        view.userInteractionEnabled = true
+    }
+    
+    func decrementMoves() {
+        --movesLeft
+        updateLabels()
+        
+        if score >= level.targetScore {
+            gameOverPanel.image = UIImage(named: "LevelComplete")
+            showGameOver()
+        } else if movesLeft == 0 {
+            gameOverPanel.image = UIImage(named: "GameOver")
+            showGameOver()
+        }
+    }
+    
+    func showGameOver() {
+        gameOverPanel.hidden = false
+        scene.userInteractionEnabled = false
+        
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "hideGameOver")
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func hideGameOver() {
+        view.removeGestureRecognizer(tapGestureRecognizer)
+        tapGestureRecognizer = nil
+        
+        gameOverPanel.hidden = true
+        scene.userInteractionEnabled = true
+        
+        beginGame()
     }
 }

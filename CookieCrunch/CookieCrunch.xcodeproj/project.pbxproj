@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D607A7B1A7182160048E21B /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D607A7A1A7182160048E21B /* Chain.swift */; };
 		D8767AD81A6FFD10009CD9B0 /* Swap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8767AD71A6FFD10009CD9B0 /* Swap.swift */; };
 		D8767AE01A702FE6009CD9B0 /* Chomp.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8767ADA1A702FE6009CD9B0 /* Chomp.wav */; };
 		D8767AE11A702FE6009CD9B0 /* Drip.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8767ADB1A702FE6009CD9B0 /* Drip.wav */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D607A7A1A7182160048E21B /* Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
 		D8767AD71A6FFD10009CD9B0 /* Swap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swap.swift; sourceTree = "<group>"; };
 		D8767ADA1A702FE6009CD9B0 /* Chomp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Chomp.wav; sourceTree = "<group>"; };
 		D8767ADB1A702FE6009CD9B0 /* Drip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Drip.wav; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				D8B63DA51A6B7CA40099BCDB /* Cookie.swift */,
 				D8C5576B1A6C6F2900E9503A /* Array2D.swift */,
 				D8767AD71A6FFD10009CD9B0 /* Swap.swift */,
+				0D607A7A1A7182160048E21B /* Chain.swift */,
 				D8C5576D1A6C708B00E9503A /* Set.swift */,
 				D8C5577C1A6E145B00E9503A /* Tile.swift */,
 				D8C5576F1A6DC03600E9503A /* Level.swift */,
@@ -303,6 +306,7 @@
 				D8B63D531A6AD6550099BCDB /* GameScene.swift in Sources */,
 				D8C5577F1A6E154A00E9503A /* Extensions.swift in Sources */,
 				D8C557701A6DC03700E9503A /* Level.swift in Sources */,
+				0D607A7B1A7182160048E21B /* Chain.swift in Sources */,
 				D8B63DA61A6B7CA40099BCDB /* Cookie.swift in Sources */,
 				D8767AD81A6FFD10009CD9B0 /* Swap.swift in Sources */,
 				D8C5577D1A6E145B00E9503A /* Tile.swift in Sources */,
