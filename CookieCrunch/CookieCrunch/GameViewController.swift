@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import AVFoundation
 
 class GameViewController: UIViewController {
     // The scene draws the tiles and cookie sprites, and handles swipes.
@@ -18,10 +19,23 @@ class GameViewController: UIViewController {
     
     var tapGestureRecognizer: UITapGestureRecognizer!
     
+    lazy var backgroundMusic: AVAudioPlayer = {
+        let url = NSBundle.mainBundle().URLForResource("Mining by Moonlight", withExtension: "mp3")
+        let player = AVAudioPlayer(contentsOfURL: url, error: nil)
+        player.numberOfLoops = -1
+        return player
+    }()
+    
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var movesLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var gameOverPanel: UIImageView!
+    
+    @IBOutlet weak var shuffleButton: UIButton!
+    @IBAction func shuffleButtonPressed(AnyObject) {
+        shuffle()
+        decrementMoves()
+    }
     
     // The level contains the tiles, the cookies, and most of the gameplay logic.
     // Needs to be ! because it's not set in init() but in viewDidLoad().
@@ -62,6 +76,7 @@ class GameViewController: UIViewController {
         skView.presentScene(scene)
         
         // Let's start the game!
+        backgroundMusic.play()
         beginGame()
     }
     
@@ -70,10 +85,14 @@ class GameViewController: UIViewController {
         score = 0
         updateLabels()
         level.resetComboMultiplier()
+        scene.animateBeginGame() {
+            self.shuffleButton.hidden = false
+        }
         shuffle()
     }
     
     func shuffle() {
+        scene.removeAllCookieSprites()
         // Fill up the level with new cookies, and create sprites for them.
         let newCookies = level.shuffle()
         scene.addSpritesForCookies(newCookies)
@@ -147,9 +166,11 @@ class GameViewController: UIViewController {
     func showGameOver() {
         gameOverPanel.hidden = false
         scene.userInteractionEnabled = false
-        
-        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "hideGameOver")
-        view.addGestureRecognizer(tapGestureRecognizer)
+        shuffleButton.hidden = true
+        scene.animateGameOver() {
+            self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "hideGameOver")
+            self.view.addGestureRecognizer(self.tapGestureRecognizer)
+        }
     }
     
     func hideGameOver() {

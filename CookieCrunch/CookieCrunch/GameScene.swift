@@ -62,7 +62,7 @@ class GameScene: SKScene {
         // Add a new node that is the container for all other layers on the playing
         // field. This gameLayer is also centered in the screen.
         addChild(gameLayer)
-        
+        gameLayer.hidden = true
         let layerPosition = CGPoint(
             x: -TileWidth * CGFloat(NumColumns) / 2,
             y: -TileHeight * CGFloat(NumRows) / 2)
@@ -91,6 +91,19 @@ class GameScene: SKScene {
             sprite.position = pointForColumn(cookie.column, row:cookie.row)
             cookiesLayer.addChild(sprite)
             cookie.sprite = sprite
+            
+            sprite.alpha = 0
+            sprite.xScale = 0.5
+            sprite.yScale = 0.5
+            
+            sprite.runAction(
+                SKAction.sequence([
+                    SKAction.waitForDuration(0.25, withRange: 0.5),
+                    SKAction.group([
+                        SKAction.fadeInWithDuration(0.25),
+                        SKAction.scaleTo(1.0, duration: 0.25)
+                        ])
+                    ]))
         }
     }
     
@@ -107,6 +120,10 @@ class GameScene: SKScene {
                 }
             }
         }
+    }
+    
+    func removeAllCookieSprites() {
+        cookiesLayer.removeAllChildren()
     }
     
     // MARK: Conversion Routines
@@ -405,6 +422,20 @@ class GameScene: SKScene {
         let moveAction = SKAction.moveBy(CGVector(dx: 0, dy: 3), duration: 0.7)
         moveAction.timingMode = .EaseOut
         scoreLabel.runAction(SKAction.sequence([moveAction, SKAction.removeFromParent()]))
+    }
+    
+    func animateGameOver(completion: () -> ()) {
+        let action = SKAction.moveBy(CGVector(dx: 0, dy: -size.height), duration: 0.3)
+        action.timingMode = .EaseIn
+        gameLayer.runAction(action, completion: completion)
+    }
+    
+    func animateBeginGame(completion: () -> ()) {
+        gameLayer.hidden = false
+        gameLayer.position = CGPoint(x: 0, y: size.height)
+        let action = SKAction.moveBy(CGVector(dx: 0, dy: -size.height), duration: 0.3)
+        action.timingMode = .EaseOut
+        gameLayer.runAction(action, completion: completion)
     }
     
 }
