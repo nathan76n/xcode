@@ -100,10 +100,23 @@ class RestaurantTableViewController: UITableViewController {
             
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             // Set heart here for selection.
+            cell?.accessoryType = .Checkmark
             self.restaurantIsVisited[indexPath.row] = true
         })
-        optionMenu.addAction(isVisitedAction)
+        let isAlreadtVisitedAction = UIAlertAction(title: "I haven't been here", style: .Default, handler: {
+            (action:UIAlertAction!) -> Void in
+            
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            // Set heart here for selection.
+            cell?.accessoryType = .None
+            self.restaurantIsVisited[indexPath.row] = false
+        })
         
+        if restaurantIsVisited[indexPath.row] {
+            optionMenu.addAction(isAlreadtVisitedAction)
+        } else {
+            optionMenu.addAction(isVisitedAction)
+        }
         // Display menu
         self.presentViewController(optionMenu, animated: true, completion: nil)
         
