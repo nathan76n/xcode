@@ -97,18 +97,20 @@ class RestaurantTableViewController: UITableViewController {
         
         let isVisitedAction = UIAlertAction(title: "I've been here", style: .Default, handler: {
             (action:UIAlertAction!) -> Void in
-            
+            let cellCurrent = tableView.cellForRowAtIndexPath(indexPath) as CustomTableViewCell
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             // Set heart here for selection.
-            cell?.accessoryType = .Checkmark
+            cellCurrent.heartImageView.hidden = false
+            //cell?.accessoryType = .None
             self.restaurantIsVisited[indexPath.row] = true
         })
         let isAlreadtVisitedAction = UIAlertAction(title: "I haven't been here", style: .Default, handler: {
             (action:UIAlertAction!) -> Void in
-            
+            let cellCurrent = tableView.cellForRowAtIndexPath(indexPath) as CustomTableViewCell
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             // Set heart here for selection.
-            cell?.accessoryType = .None
+            cellCurrent.heartImageView.hidden = true
+            //cell?.accessoryType = .None
             self.restaurantIsVisited[indexPath.row] = false
         })
         
