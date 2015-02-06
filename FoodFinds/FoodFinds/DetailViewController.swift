@@ -11,16 +11,28 @@ import UIKit
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var restaurantImageView:UIImageView!
+    @IBOutlet var tableView: UITableView!
     
     
     var restaurant:Restaurant!
     
     
     override func viewDidLoad() {
-        restaurantImageView.image = UIImage(named: restaurant.image)
-        restaurantImageView.layer.cornerRadius = restaurantImageView.frame.size.width / 2
-        restaurantImageView.clipsToBounds = true
+        self.tableView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        self.tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.8)
         
+        title = self.restaurant.name
+        
+        restaurantImageView.image = UIImage(named: restaurant.image)
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.hidesBarsOnSwipe = false
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,6 +41,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as DetailTableViewCell
+        
+        cell.backgroundColor = UIColor.clearColor()
         
         switch indexPath.row {
         case 0:

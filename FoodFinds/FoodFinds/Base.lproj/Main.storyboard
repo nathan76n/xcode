@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4pv-ql-ENC">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -10,7 +12,7 @@
             <objects>
                 <tableViewController id="ijE-e7-AaD" customClass="RestaurantTableViewController" customModule="FoodFinds" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="Uaq-4E-KVA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -90,6 +92,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Food Find" id="E2f-A7-NZD"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xRB-wj-Rb3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,18 +107,18 @@
                         <viewControllerLayoutGuide type="bottom" id="x9r-Ki-d7t"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YqW-Gs-p0f">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qkf-F1-SrT">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qkf-F1-SrT">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="DOR-C3-ley"/>
+                                </constraints>
                                 <imageView key="tableHeaderView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="mp9-U2-16G">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="250" id="ZFM-LR-qhe"/>
-                                    </constraints>
                                 </imageView>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="36" id="zri-3B-Rhn" customClass="DetailTableViewCell" customModule="FoodFinds" customModuleProvider="target">
@@ -123,19 +126,31 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zri-3B-Rhn" id="3oj-QN-Mpt">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yND-p2-jew">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yND-p2-jew">
                                                     <rect key="frame" x="91" y="8" width="221" height="21"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Field" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFa-oQ-NIZ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Field" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFa-oQ-NIZ">
                                                     <rect key="frame" x="15" y="9" width="62" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="62" id="uy7-RM-gXP"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yND-p2-jew" firstAttribute="trailing" secondItem="3oj-QN-Mpt" secondAttribute="trailingMargin" id="02a-sc-RCB"/>
+                                                <constraint firstItem="yND-p2-jew" firstAttribute="top" secondItem="3oj-QN-Mpt" secondAttribute="topMargin" id="1S6-VH-bqb"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="PFa-oQ-NIZ" secondAttribute="bottom" constant="-3" id="Eg7-lV-6NV"/>
+                                                <constraint firstItem="yND-p2-jew" firstAttribute="baseline" secondItem="PFa-oQ-NIZ" secondAttribute="firstBaseline" id="NW3-8E-QEI"/>
+                                                <constraint firstItem="PFa-oQ-NIZ" firstAttribute="leading" secondItem="3oj-QN-Mpt" secondAttribute="leadingMargin" constant="7" id="Whd-eC-1GK"/>
+                                                <constraint firstItem="PFa-oQ-NIZ" firstAttribute="top" secondItem="3oj-QN-Mpt" secondAttribute="topMargin" constant="1" id="hso-dz-3rM"/>
+                                                <constraint firstItem="yND-p2-jew" firstAttribute="leading" secondItem="PFa-oQ-NIZ" secondAttribute="trailing" constant="14" id="sY8-2N-D2d"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="fieldLabel" destination="PFa-oQ-NIZ" id="mRG-Tm-Mwu"/>
@@ -150,10 +165,17 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qkf-F1-SrT" firstAttribute="top" secondItem="TUy-br-zC4" secondAttribute="bottom" id="SLw-MM-dYU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qkf-F1-SrT" secondAttribute="trailing" constant="-16" id="V1Q-LZ-Nez"/>
+                            <constraint firstItem="qkf-F1-SrT" firstAttribute="leading" secondItem="YqW-Gs-p0f" secondAttribute="leadingMargin" constant="-16" id="alE-3P-6X6"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="qkf-F1-SrT" secondAttribute="bottom" constant="-44" id="nhj-UQ-Sw6"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="VF9-SZ-0dy"/>
                     <connections>
                         <outlet property="restaurantImageView" destination="mp9-U2-16G" id="zck-as-fyk"/>
+                        <outlet property="tableView" destination="qkf-F1-SrT" id="anR-Dy-D9A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zHN-Cm-y35" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -165,7 +187,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4pv-ql-ENC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="MO7-Ur-GB6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
