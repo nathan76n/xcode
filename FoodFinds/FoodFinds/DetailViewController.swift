@@ -36,7 +36,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -57,6 +57,9 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         case 3:
             cell.fieldLabel.text = "Been here"
             cell.valueLabel.text = (restaurant.isVisited) ? "Yes, I've been here" : "No"
+        case 4:
+            cell.fieldLabel.text = "Phone"
+            cell.valueLabel.text = restaurant.phone
         default:
             cell.fieldLabel.text = ""
             cell.valueLabel.text = ""
