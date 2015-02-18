@@ -35,6 +35,9 @@ class RestaurantTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        tableView.estimatedRowHeight = 80.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     }
     
@@ -78,7 +81,6 @@ class RestaurantTableViewController: UITableViewController {
         
         cell.locationLabel.text = restaurant.location
         cell.typeLabel.text = restaurant.type
-        
         if restaurant.isVisited {
             cell.heartImageView.hidden = false
         } else {
