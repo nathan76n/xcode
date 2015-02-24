@@ -13,6 +13,9 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet var restaurantImageView:UIImageView!
     @IBOutlet var tableView: UITableView!
     
+    @IBAction func close(segue:UIStoryboardSegue) {
+        
+    }
     
     var restaurant:Restaurant!
     
