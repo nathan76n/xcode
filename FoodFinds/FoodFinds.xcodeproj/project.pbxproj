@@ -17,6 +17,7 @@
 		0DD70AE31A78105C003C8C5C /* FoodFindsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD70AE21A78105C003C8C5C /* FoodFindsTests.swift */; };
 		0DD70AED1A781114003C8C5C /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD70AEC1A781114003C8C5C /* RestaurantTableViewController.swift */; };
 		0DD70AEF1A7816C4003C8C5C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD70AEE1A7816C4003C8C5C /* CustomTableViewCell.swift */; };
+		D85AA85F1AA33E62002C3368 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85AA85E1AA33E62002C3368 /* ReviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		0DD70AE21A78105C003C8C5C /* FoodFindsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodFindsTests.swift; sourceTree = "<group>"; };
 		0DD70AEC1A781114003C8C5C /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
 		0DD70AEE1A7816C4003C8C5C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		D85AA85E1AA33E62002C3368 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				0DAFEB811A83FDE400350C0C /* DetailViewController.swift */,
 				0DD70AEE1A7816C4003C8C5C /* CustomTableViewCell.swift */,
 				0DAFEB851A8412AC00350C0C /* DetailTableViewCell.swift */,
+				D85AA85E1AA33E62002C3368 /* ReviewViewController.swift */,
 				0DD70AD01A78105B003C8C5C /* Main.storyboard */,
 				0DD70AD31A78105B003C8C5C /* Images.xcassets */,
 				0DD70AD51A78105B003C8C5C /* LaunchScreen.xib */,
@@ -226,6 +229,7 @@
 			files = (
 				0DAFEB861A8412AC00350C0C /* DetailTableViewCell.swift in Sources */,
 				0DAFEB841A84064600350C0C /* Restaurant.swift in Sources */,
+				D85AA85F1AA33E62002C3368 /* ReviewViewController.swift in Sources */,
 				0DD70AEF1A7816C4003C8C5C /* CustomTableViewCell.swift in Sources */,
 				0DD70AED1A781114003C8C5C /* RestaurantTableViewController.swift in Sources */,
 				0DD70ACD1A78105B003C8C5C /* AppDelegate.swift in Sources */,
