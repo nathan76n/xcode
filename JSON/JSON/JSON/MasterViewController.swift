@@ -25,27 +25,27 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+        let urlString = "http://www.blog.invesco.us.com/json"
         
         if let url = NSURL(string: urlString) {
-            if let data = try? NSData(contentsOfURL: url, options: []) {
+            if let data = NSData(contentsOfURL: url) {
                 let json = JSON(data: data)
             
-                if json["metadata"]["responseInfo"]["status"].intValue == 200 {
+                //if json["metadata"]["responseInfo"]["status"].intValue == 200 {
                     // we're ok to parse!
                     parseJSON(json)
-                }
+                //}
             }
         }
         
     }
 
     func parseJSON(json: JSON) {
-        for result in json["results"].arrayValue {
+        for result in json.arrayValue {
             let title = result["title"].stringValue
-            let body = result["body"].stringValue
-            let sigs = result["signatureCount"].stringValue
-            let obj = ["title": title, "body": body, "sigs": sigs]
+            let author = result["author"].stringValue
+            let content = result["content"].stringValue
+            let obj = ["title": title, "author": author, "content": content]
             objects.append(obj)
         }
         
@@ -64,6 +64,7 @@ class MasterViewController: UITableViewController {
                 let object = objects[indexPath.row]
                 let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailViewController
                 controller.detailItem = object
+                //println(object)
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
@@ -84,7 +85,8 @@ class MasterViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 
         let object = objects[indexPath.row]
-        cell.textLabel!.text = object.description
+        cell.textLabel!.text = object["title"]
+        cell.detailTextLabel!.text = object["author"]
         return cell
     }
 

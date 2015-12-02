@@ -7,39 +7,37 @@
 //
 
 import UIKit
+import WebKit
 
 class DetailViewController: UIViewController {
+    var webView: WKWebView!
+    var detailItem: [String: String]!
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-
-
-    var detailItem: AnyObject? {
-        didSet {
-            // Update the view.
-            self.configureView()
-        }
+    override func loadView() {
+        webView = WKWebView()
+        view = webView
     }
-
-    func configureView() {
-        // Update the user interface for the detail item.
-        if let detail: AnyObject = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.description
-            }
-        }
-    }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.configureView()
+        println(detailItem)
+        if detailItem != nil {} else { return }
+        if let title = detailItem["title"] {
+            self.title = title
+        }
+        if let body = detailItem["content"] {
+            var html = "<html>"
+            html += "<head>"
+            html += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=.8\">"
+            html += "<style> body { font-size: 120%;} </style>"
+            html += "<link rel=\"stylesheet\" href=\"http://www.blog.invesco.us.com/wp-content/themes/Minimal/style.css\" type=\"text/css\" media=\"screen\">"
+            html += "</head>"
+            html += "<body>"
+            html += body
+            html += "</body>"
+            html += "</html>"
+            webView.loadHTMLString(html, baseURL: nil)
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
